@@ -40,15 +40,15 @@ public class ChestTerminal extends JavaPlugin implements Listener {
 
 		if (updater != null && cfg.getBoolean("options.auto-update")) updater.start();
 		
-		final Category category = new Category(new CustomItem(SlimefunItems.CHEST_TERMINAL, "&5Chest Terminal", "", "&a> Click to open"));
+		final Category category = new Category(new CustomItem(SlimefunItems.CHEST_TERMINAL, "&5Грузовые терминалы", "", "&a> Нажмите, чтобы открыть"));
 		
-		final ItemStack quartz = new CustomItem(new ItemStack(Material.QUARTZ), "&rMilky Quartz");
+		final ItemStack quartz = new CustomItem(new ItemStack(Material.QUARTZ), "&rМлечный кварц");
 		
-		final ItemStack wireless_terminal16 = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3CT Wireless Access Terminal &b(16)", "&8\u21E8 &7Linked to: &cNowhere", "&8\u21E8 &7Range: &e16 Blocks", "&c&o&8\u21E8 &e\u26A1 &70 / 10 J", "", "&7If this Block is linked to an Access Terminal", "&7it will be able to remotely access that Terminal", "", "&7&eRight Click on an Access Terminal &7to link", "&7&eRight Click&7 to open the linked Terminal");
-		final ItemStack wireless_terminal64 = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3CT Wireless Access Terminal &b(64)", "&8\u21E8 &7Linked to: &cNowhere", "&8\u21E8 &7Range: &e64 Blocks", "&c&o&8\u21E8 &e\u26A1 &70 / 25 J", "", "&7If this Block is linked to an Access Terminal", "&7it will be able to remotely access that Terminal", "", "&7&eRight Click on an Access Terminal &7to link", "&7&eRight Click&7 to open the linked Terminal");
-		final ItemStack wireless_terminal128 = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3CT Wireless Access Terminal &b(128)", "&8\u21E8 &7Linked to: &cNowhere", "&8\u21E8 &7Range: &e128 Blocks", "&c&o&8\u21E8 &e\u26A1 &70 / 50 J", "", "&7If this Block is linked to an Access Terminal", "&7it will be able to remotely access that Terminal", "", "&7&eRight Click on an Access Terminal &7to link", "&7&eRight Click&7 to open the linked Terminal");
-		final ItemStack wireless_terminalT = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3CT Wireless Access Terminal &b(Transdimensional)", "&8\u21E8 &7Linked to: &cNowhere", "&8\u21E8 &7Range: &eUnlimited", "&c&o&8\u21E8 &e\u26A1 &70 / 50 J", "", "&7If this Block is linked to an Access Terminal", "&7it will be able to remotely access that Terminal", "", "&7&eRight Click on an Access Terminal &7to link", "&7&eRight Click&7 to open the linked Terminal");
-		final ItemStack drill = new CustomItem(new ItemStack(Material.IRON_BLOCK), "&3Quartz Drill", "&7Mines up Milky Quartz", "", "&c&l! &cMake sure to Geo-Scan the Chunk first");
+		final ItemStack wireless_terminal16 = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3Терминал беспроводного доступа &b(16)", "&8\u21E8 &7Подсоединён к: &cничему", "&8\u21E8 &7Диапазон: &e16 блоков", "&c&o&8\u21E8 &e\u26A1 &70 / 10 Дж", "", "&7Если подключен к терминалу доступа,", "&7он будет иметь удалённый доступ к нему", "", "&7&eПравый клик по терминалу доступ&7 для подсоединения", "&7&eПравый клик&7 для открытия подключённого терминала");
+		final ItemStack wireless_terminal64 = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3Терминал беспроводного доступа &b(64)", "&8\u21E8 &7Подсоединён к: &cничему", "&8\u21E8 &7Диапазон: &e64 блока", "&c&o&8\u21E8 &e\u26A1 &70 / 25 Дж", "", "&7Если подключен к терминалу доступа,", "&7он будет иметь удалённый доступ к нему", "", "&7&eПравый клик по терминалу доступ&7 для подсоединения", "&7&eПравый клик&7 для открытия подключённого терминала");
+		final ItemStack wireless_terminal128 = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3Терминал беспроводного доступа &b(128)", "&8\u21E8 &7Подсоединён к: &cничему", "&8\u21E8 &7Диапазон: &e128 блоков", "&c&o&8\u21E8 &e\u26A1 &70 / 50 Дж", "", "&7Если подключен к терминалу доступа,", "&7он будет иметь удалённый доступ к нему", "", "&7&eПравый клик по терминалу доступ&7 для подсоединения", "&7&eПравый клик&7 для открытия подключённого терминала");
+		final ItemStack wireless_terminalT = new CustomItem(new ItemStack(Material.ITEM_FRAME), "&3Терминал беспроводного доступа &b(межпространственный)", "&8\u21E8 &7Подсоединён к: &cничему", "&8\u21E8 &7Диапазон: &eбез ограничений", "&c&o&8\u21E8 &e\u26A1 &70 / 50 Дж", "", "&7Если подключен к терминалу доступа,", "&7он будет иметь удалённый доступ к нему", "", "&7&eПравый клик по терминалу доступ&7 для подсоединения", "&7&eПравый клик&7 для открытия подключённого терминала");
+		final ItemStack drill = new CustomItem(new ItemStack(Material.IRON_BLOCK), "&3Кварцевый бур", "&7Добывает млечный кварц", "", "&c&l! &cУбедитесь, что Вы просканировали", "&cчанк при помощи геосканера");
 		
 		new QuartzDrill(category, drill, "QUARTZ_DRILL", RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {null, SlimefunItems.POWER_CRYSTAL, null, SlimefunItems.PLASTIC_SHEET, SlimefunItems.OIL_PUMP, SlimefunItems.PLASTIC_SHEET, SlimefunItems.COBALT_INGOT, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.COBALT_INGOT}) {
@@ -72,7 +72,7 @@ public class ChestTerminal extends JavaPlugin implements Listener {
 
 		new SlimefunItem(category, quartz, "MILKY_QUARTZ", new RecipeType(drill), new ItemStack[0]).register();
 		
-		new SlimefunItem(category, new CustomItem(SlimefunItems.CHEST_TERMINAL, "&3CT Illuminated Panel", "&7Crafting Component"), "CT_PANEL", RecipeType.ENHANCED_CRAFTING_TABLE,
+		new SlimefunItem(category, new CustomItem(SlimefunItems.CHEST_TERMINAL, "&3Панель с подсветкой", "&7Компонент для крафта"), "CT_PANEL", RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {quartz, SlimefunItems.BLISTERING_INGOT_3, quartz, SlimefunItems.REDSTONE_ALLOY, SlimefunItems.POWER_CRYSTAL, SlimefunItems.REDSTONE_ALLOY, quartz, SlimefunItems.BLISTERING_INGOT_3, quartz})
 		.register();
 		
@@ -132,12 +132,12 @@ public class ChestTerminal extends JavaPlugin implements Listener {
 			
 			@Override
 			public String getName() {
-				return "Milky Quartz";
+				return "Млечный кварц";
 			}
 			
 			@Override
 			public String getMeasurementUnit() {
-				return "Unit(s)";
+				return "Единиц";
 			}
 			
 			@Override

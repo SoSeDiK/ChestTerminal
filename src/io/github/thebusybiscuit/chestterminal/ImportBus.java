@@ -26,7 +26,7 @@ public class ImportBus extends SlimefunItem {
 	public ImportBus(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
 		
-		new BlockMenuPreset(name, ChatColor.translateAlternateColorCodes('&', "&3CT Import Bus")) {
+		new BlockMenuPreset(name, ChatColor.translateAlternateColorCodes('&', "&3Импортировочный порт")) {
 			
 			@Override
 			public void init() {
@@ -37,7 +37,7 @@ public class ImportBus extends SlimefunItem {
 			public void newInstance(final BlockMenu menu, final Block b) {
 				try {
 					if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "filter-type") == null || BlockStorage.getLocationInfo(b.getLocation(), "filter-type").equals("whitelist")) {
-						menu.replaceExistingItem(23, new CustomItem(Material.WHITE_WOOL, "&7Type: &rWhitelist", "", "&e> Click to change it to Blacklist"));
+						menu.replaceExistingItem(23, new CustomItem(Material.WHITE_WOOL, "&7Режим: &rбелый список", "", "&e> Нажмите, чтобы изменить на чёрный список"));
 						menu.addMenuClickHandler(23, new MenuClickHandler() {
 
 							@Override
@@ -49,7 +49,7 @@ public class ImportBus extends SlimefunItem {
 						});
 					}
 					else {
-						menu.replaceExistingItem(23, new CustomItem(Material.BLACK_WOOL, "&7Type: &8Blacklist", "", "&e> Click to change it to Whitelist"));
+						menu.replaceExistingItem(23, new CustomItem(Material.BLACK_WOOL, "&7Режим: &8чёрный список", "", "&e> Нажмите, чтобы изменить на белый список"));
 						menu.addMenuClickHandler(23, new MenuClickHandler() {
 
 							@Override
@@ -62,7 +62,7 @@ public class ImportBus extends SlimefunItem {
 					}
 					
 					if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "filter-durability") == null || BlockStorage.getLocationInfo(b.getLocation(), "filter-durability").equals("false")) {
-						menu.replaceExistingItem(41, new CustomItem(Material.STONE_SWORD, "&7Include Sub-IDs/Durability: &4\u2718", "", "&e> Click to toggle whether the Durability has to match"));
+						menu.replaceExistingItem(41, new CustomItem(Material.STONE_SWORD, "&7Учитывать прочность: &4\u2718", "", "&e> Нажмите для изменения"));
 						menu.addMenuClickHandler(41, new MenuClickHandler() {
 
 							@Override
@@ -74,7 +74,7 @@ public class ImportBus extends SlimefunItem {
 						});
 					}
 					else {
-						menu.replaceExistingItem(41, new CustomItem(Material.GOLDEN_SWORD, "&7Include Sub-IDs/Durability: &2\u2714", "", "&e> Click to toggle whether the Durability has to match"));
+						menu.replaceExistingItem(41, new CustomItem(Material.GOLDEN_SWORD, "&7Учитывать прочность: &2\u2714", "", "&e> Нажмите для изменения"));
 						menu.addMenuClickHandler(41, new MenuClickHandler() {
 
 							@Override
@@ -87,7 +87,7 @@ public class ImportBus extends SlimefunItem {
 					}
 					
 					if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "filter-lore") == null || BlockStorage.getLocationInfo(b.getLocation(), "filter-lore").equals("true")) {
-						menu.replaceExistingItem(32, new CustomItem(Material.MAP, "&7Include Lore: &2\u2714", "", "&e> Click to toggle whether the Lore has to match"));
+						menu.replaceExistingItem(32, new CustomItem(Material.MAP, "&7Учитывать описание: &2\u2714", "", "&e> Нажмите для изменения"));
 						menu.addMenuClickHandler(32, new MenuClickHandler() {
 
 							@Override
@@ -99,7 +99,7 @@ public class ImportBus extends SlimefunItem {
 						});
 					}
 					else {
-						menu.replaceExistingItem(32, new CustomItem(Material.MAP, "&7Include Lore: &4\u2718", "", "&e> Click to toggle whether the Lore has to match"));
+						menu.replaceExistingItem(32, new CustomItem(Material.MAP, "&7Учитывать описание: &4\u2718", "", "&e> Нажмите для изменения"));
 						menu.addMenuClickHandler(32, new MenuClickHandler() {
 
 							@Override
@@ -161,7 +161,7 @@ public class ImportBus extends SlimefunItem {
 		preset.addItem(25, new CustomItem(Material.ORANGE_STAINED_GLASS_PANE, " "), click);
 		preset.addItem(26, new CustomItem(Material.ORANGE_STAINED_GLASS_PANE, " "), click);
 
-		preset.addItem(2, new CustomItem(Material.PAPER, "&3Items", "", "&bPut in all Items you want to", "&bblacklist/whitelist"), click);
+		preset.addItem(2, new CustomItem(Material.PAPER, "&3Предметы", "", "&bСложите сюда предметы, которые должны", "&bбыть в чёрном/белом списке"), click);
 	}
 	
 	public int[] getInputSlots() {

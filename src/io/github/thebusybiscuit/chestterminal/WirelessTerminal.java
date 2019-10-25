@@ -37,8 +37,8 @@ public abstract class WirelessTerminal extends SimpleSlimefunItem<ItemInteractio
 				
 				if (e.getClickedBlock() != null) {
 					if (BlockStorage.check(e.getClickedBlock(), "CHEST_TERMINAL")) {
-						lore.set(0, ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Linked to: &8") + e.getClickedBlock().getWorld().getName() + " X: " + e.getClickedBlock().getX() + " Y: " + e.getClickedBlock().getY() + " Z: " + e.getClickedBlock().getZ());
-						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bLink established!"));
+						lore.set(0, ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Подсоединён к: &8") + e.getClickedBlock().getWorld().getName() + " X: " + e.getClickedBlock().getX() + " Y: " + e.getClickedBlock().getY() + " Z: " + e.getClickedBlock().getZ());
+						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bСоединение установлено!"));
 						im.setLore(lore);
 						stack.setItemMeta(im);
 						p.getInventory().setItemInMainHand(stack);
@@ -61,15 +61,15 @@ public abstract class WirelessTerminal extends SimpleSlimefunItem<ItemInteractio
 	}
 	
 	private void openRemoteTerminal(Player p, ItemStack stack, String loc, int range) {
-		if (loc.equals(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Linked to: &cNowhere"))) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Failed &c- This Device has not been linked to a Chest Terminal!"));
+		if (loc.equals(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Подсоединён к: &cничему"))) {
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Ошибка&c: устройство не было подсоединено к грузовому терминалу!"));
 			return;
 		}
 		
-		loc = loc.replace(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Linked to: &8"), "");
+		loc = loc.replace(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Подсоединён к: &8"), "");
 		World world = Bukkit.getWorld(loc.split(" X: ")[0]);
 		if (world == null) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Failed &c- The Chest Terminal that this Device has been linked to no longer exists!"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Ошибка&c: подсоединённый грузовой терминал больше не существует!"));
 			return;
 		}
 		int x = Integer.parseInt(loc.split(" X: ")[1].split(" Y: ")[0]);
@@ -79,22 +79,22 @@ public abstract class WirelessTerminal extends SimpleSlimefunItem<ItemInteractio
 		Block block = world.getBlockAt(x, y, z);
 		
 		if (!BlockStorage.check(block, "CHEST_TERMINAL")) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Failed &c- The Chest Terminal that this Device has been linked to no longer exists!"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Ошибка&c: подсоединённый грузовой терминал больше не существует!"));
 			return;
 		}
 		
 		float charge = ItemEnergy.getStoredEnergy(stack);
 		if (charge < 0.5F) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Failed &c- You are out of Energy!"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Ошибка&c: нехватка электричества!"));
 			return;
 		}
 
 		if (range > 0 && !world.getUID().equals(p.getWorld().getUID())) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Failed &c- You are out of Range!"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Ошибка&c: нехватка электричества!"));
 			return;
 		}
 		if (range > 0 && block.getLocation().distance(p.getLocation()) > range) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Failed &c- You are out of Range!"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4Ошибка&c: нехватка электричества!"));
 			return;
 		}
 

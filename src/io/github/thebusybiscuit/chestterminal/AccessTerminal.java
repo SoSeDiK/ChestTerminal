@@ -29,7 +29,7 @@ public class AccessTerminal extends SlimefunItem {
 	public AccessTerminal(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
 
-		new BlockMenuPreset(name, ChatColor.translateAlternateColorCodes('&', "&3CT Access Terminal")) {
+		new BlockMenuPreset(name, ChatColor.translateAlternateColorCodes('&', "&3Терминал доступа")) {
 			
 			@Override
 			public void init() {
@@ -39,7 +39,7 @@ public class AccessTerminal extends SlimefunItem {
 			@Override
 			public void newInstance(final BlockMenu menu, final Block b) {
 				try {
-					menu.replaceExistingItem(46, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjI1OTliZDk4NjY1OWI4Y2UyYzQ5ODg1MjVjOTRlMTlkZGQzOWZhZDA4YTM4Mjg0YTE5N2YxYjcwNjc1YWNjIn19fQ=="), "&7\u21E6 Previous Page", "", "&c(This may take up to a Second to update)"));
+					menu.replaceExistingItem(46, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjI1OTliZDk4NjY1OWI4Y2UyYzQ5ODg1MjVjOTRlMTlkZGQzOWZhZDA4YTM4Mjg0YTE5N2YxYjcwNjc1YWNjIn19fQ=="), "&7\u21E6 Предыдущая страница", "", "&c(может потребоваться некоторое время)"));
 					menu.addMenuClickHandler(46, (p, slot, item, action) -> {
 						int page = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), "page")) - 1;
 						if (page > 0) {
@@ -49,7 +49,7 @@ public class AccessTerminal extends SlimefunItem {
 						return false;
 					});
 					
-					menu.replaceExistingItem(50, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzJmOTEwYzQ3ZGEwNDJlNGFhMjhhZjZjYzgxY2Y0OGFjNmNhZjM3ZGFiMzVmODhkYjk5M2FjY2I5ZGZlNTE2In19fQ=="), "&7Next Page \u21E8", "", "&c(This may take up to a Second to update)"));
+					menu.replaceExistingItem(50, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzJmOTEwYzQ3ZGEwNDJlNGFhMjhhZjZjYzgxY2Y0OGFjNmNhZjM3ZGFiMzVmODhkYjk5M2FjY2I5ZGZlNTE2In19fQ=="), "&7Следующая страница \u21E8", "", "&c(может потребоваться некоторое время)"));
 					menu.addMenuClickHandler(50, (p, slot, item, action) -> {
 						int page = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), "page")) + 1;
 						BlockStorage.addBlockInfo(b, "page", String.valueOf(page));
@@ -118,7 +118,7 @@ public class AccessTerminal extends SlimefunItem {
 	public void register(boolean slimefun) {
 		addItemHandler(new BlockTicker() {
 			
-			private final ItemStack item = new CustomItem(Material.BARRIER, "&4No Cargo Net connected!");
+			private final ItemStack item = new CustomItem(Material.BARRIER, "&4Грузовая сеть не подсоединена!");
 			private final MenuClickHandler click = (p, slot, item, action) -> false;
 			
 			@Override
